@@ -19,6 +19,9 @@ func main() {
 			ssh.Password(args.Password),
 		},
 		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
+		Config: ssh.Config{
+			MACs: []string{"hmac-sha2-256", "hmac-sha2-512", "hmac-sha1"},
+		},
 	})
 	if err != nil {
 		log.Fatalln("failed to connect to server: ", err)
