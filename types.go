@@ -5,4 +5,5 @@ type Args struct {
 	Username string
 	Password string
 	Socks5   string
+	DoH      string
 }
