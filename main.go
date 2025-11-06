@@ -34,7 +34,7 @@ func main() {
 
 	serverSocks, err := socks5.New(&socks5.Config{
 		Dial: func(ctx context.Context, network, addr string) (net.Conn, error) {
-			dialer := NewSSHDialer(sshConn)
+			dialer := NewSSHDialer(args.Address, args.Username, args.Password)
 			return dialer.Dial(network, addr)
 		},
 		Resolver: NewDoHResolver(args.DoH),
